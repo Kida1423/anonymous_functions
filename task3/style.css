@@ -1,0 +1,12 @@
+div {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+body{
+    text-align: center;
+}
+button {
+    font-size: 1em;
+    padding: 10px;
+    margin: 5px;
+}

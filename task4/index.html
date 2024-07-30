@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',(event)=>{
+            const form=document.getElementById('loginFrom');
+            const userNameInput=form.querySelector('input[name="username"]');
+            const passwordInput=form.querySelector('input[name="password"]');
+            const submitButton=form.querySelector('input[type="submit"]');
+            function check(){
+                const username=userNameInput.value;
+                const password=passwordInput.value;
+                submitButton.disabled=username.length<6 || password.length<6;
+            }
+            userNameInput.addEventListener('keyup',check);
+            passwordInput.addEventListener('keyup',check);
+            form.addEventListener('submit',function(event){
+                event.preventDefault();
+                alert(`Username: ${userNameInput.value}\nPassword: ${passwordInput.value}`);
+            });
+        })
+    </script>
+</head>
+<body>
+    <form id="loginFrom">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="text" name="password" placeholder="Password" />
+        <input type="submit" value="Log in" disabled />
+    </form>
+
+</body>
+</html>

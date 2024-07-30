@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            function addButton(){
+            let par=document.querySelectorAll('p.question');
+            par.forEach(element => {
+                let button=document.createElement('button');
+                button.classList.add('show');
+                button.textContent='Посмотреть ответ';
+                element.insertAdjacentElement('afterend',button);
+                button.addEventListener('click',()=>{
+                    const answer=element.querySelector('.answer');
+                    if(answer.classList.contains('show')){
+                        answer.classList.remove('show');
+                        button.textContent='Посмотреть ответ';
+                    }else{
+                        answer.classList.add('show');
+                        button.textContent='Скрыть ответ';
+                    }
+                });
+            });
+        }
+            addButton();
+        });
+    </script>  
+</head>
+<body>
+    <p class="question">
+        Висит груша - нельзя скушать.
+        <span class="answer">Лампочка</span>
+      </p>
+      
+      <p class="question">
+        С луком с яйцами, но не пирожок?
+        <span class="answer">Робин Гуд</span>
+      </p>
+      
+      <p class="question">
+        Один глаз, один рог, но не носорог?
+        <span class="answer">Корова из-за угла выглядывает</span>
+      </p>
+    
+</body>
+</html>

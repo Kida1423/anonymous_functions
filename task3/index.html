@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            let timer;
+            let seconds=0;
+            let minutes=0;
+            function updateDisplay(){
+                document.getElementById('minutes').textContent=minutes<10?'0'+minutes:minutes;
+                document.getElementById('seconds').textContent=seconds<10?'0'+seconds:seconds;
+            }
+            function startTime(){
+                timer=setInterval(() => {
+                seconds++;
+                if(seconds>59){
+                    seconds=0;
+                    minutes++;
+                }
+                updateDisplay();
+            }, 1000);
+            }
+            document.getElementById('start').addEventListener('click', function(){
+                clearInterval(timer);
+                startTime();
+            })
+            document.getElementById('pause').addEventListener('click',function(){
+                clearInterval(timer)
+            })
+            document.getElementById('reset').addEventListener('click',function(){
+                clearInterval(timer);
+                minutes=0;
+                seconds=0;
+                updateDisplay()
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>
+      </div>
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>    
+
+</body>
+</html>

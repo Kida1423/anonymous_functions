@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            document.getElementById('add-item-btn').onclick = function(){
+            let container=document.getElementById('container');
+            let inner= document.createElement('div');
+            inner.className='element';
+            inner.textContent='Element';
+            container.appendChild(inner);
+        }
+        })
+    </script>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="add-item-btn">+</button>
+</body>
+</html>
