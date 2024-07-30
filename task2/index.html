@@ -8,9 +8,10 @@
             let interval;
         document.getElementById('start').onclick=function(){
             let container=document.getElementById('container');
-            let inner= document.createElement('div');
-            inner.className='element';
+
             interval=setInterval(() => {
+                let inner= document.createElement('div');
+                inner.className='element';
                 let num=Math.floor(Math.random()*20);
                 inner.textContent=num;
                 container.appendChild(inner);
